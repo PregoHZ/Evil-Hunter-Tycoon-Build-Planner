@@ -1,0 +1,242 @@
+#Calculator to build hunters in Evil Hunter Tycoon
+#We have as objective take the items and yours attributes in game e calculate a build for the hunter
+
+#Saving in the memory all attributes
+class App():
+    def __init__(self):
+        self.attributes = [
+        'hp','eva','def','damage reduction', 'atq','attack speed','movement speed','critical chance','critical damage','primate','majoral','zombie','demon','animal','life steal','additional damage','stun hit','eva hit','barrier hit','curse hit','saciety red','humor red','force red','saciety rec','force rec','humor rec','rrchangel','demon_Lord','exp_gain','double_gold','extra_material'
+        ] #Saving into a list constructor
+
+#Registering the attributes present on the itens
+
+        self.weapon_attributes = {} #Here we make variables in dict format
+        self.helmet_attributes = {} #for saving in memory the attributes
+        self.chest_attributes = {}  #and yours values in each item in the
+        self.gloves_attributes = {}  #hunter build
+        self.greaves_attributes = {}
+        self.belt_attributes = {}
+        self.necklace_attributes = {}
+        self.ring_attributes = {}
+
+    #Function responsible to show all attributes in the game
+    def show_attributes(self):
+        print('Attributes list')
+        print(self.attributes)
+
+    #Function responsible to record attributes in the weapon
+    def attribute_update_weapon(self):
+        print('WEAPON ATTRIBUTES')
+        while True:
+            attribute = input('Choice a attribute or "next item" to next item:  ') #Input to get attribute or pass
+            if attribute.lower() == 'next item':                                   #to next item of the build
+                print('Item finished')
+                break
+            elif attribute not in self.attributes:       #Attribute validation
+                print('Invalid attribute: Choice a valid attribute from the list.')
+                continue
+            try:
+                value = int(input(f'Input {attribute} item value:  '))
+            except ValueError:                                         #Value validation
+                print('Invalid value! Input a valid value:')
+                continue
+            self.weapon_attributes[attribute] = value            #Value attribution on dict
+    
+    #Function responsible to record attributes in the helmet
+    def attribute_update_helmet(self):
+        print('HELMET ATTRIBUTES')
+        while True:
+            attribute = input('Choice a attribute or "next item" to next item:  ')
+            if attribute.lower() == 'next item':
+                print('Item finished')
+                break
+            elif attribute not in self.attributes:
+                print('Invalid attribute: Choice a valid attribute from the list.')
+                continue
+            try:
+                value = int(input(f'Input {attribute} item value:  '))
+            except ValueError:
+                print('Invalid value! Input a valid value:')
+                continue
+            self.helmet_attributes[attribute] = value
+    
+    #Function responsible to record attributes in the chest
+    def attribute_update_chest(self):
+        print('CHEST ATTRIBUTES')
+        while True:
+            attribute = input('Choice a attribute or "next item" to next item:  ')
+            if attribute.lower() == 'next item':
+                print('Item finished')
+                break
+            elif attribute not in self.attributes:
+                print('Invalid attribute: Choice a valid attribute from the list.')
+                continue
+            try:
+                value = int(input(f'Input {attribute} item value:  '))
+            except ValueError:
+                print('Invalid value! Input a valid value:')
+                continue
+            self.chest_attributes[attribute] = value
+    
+    #Function responsible to record attributes in the gloves
+    def attribute_update_gloves(self):
+        print('GLOVES ATTRIBUTES')
+        while True:
+            attribute = input('Choice a attribute or "next item" to next item:  ')
+            if attribute.lower() == 'next item':
+                print('Item finished')
+                break
+            elif attribute not in self.attributes:
+                print('Invalid attribute: Choice a valid attribute from the list.')
+                continue
+            try:
+                value = int(input(f'Input {attribute} item value:  '))
+            except ValueError:
+                print('Invalid value! Input a valid value:')
+                continue
+            self.gloves_attributes[attribute] = value
+    
+    #Function responsible to record attributes in the greaves
+    def attribute_update_greaves(self):
+        print('GREAVES ATTRIBUTES')
+        while True:
+            attribute = input('Choice a attribute or "next item" to next item:  ')
+            if attribute.lower() == 'next item':
+                print('Item finished')
+                break
+            elif attribute not in self.attributes:
+                print('Invalid attribute: Choice a valid attribute from the list.')
+                continue
+            try:
+                value = int(input(f'Input {attribute} item value:  '))
+            except ValueError:
+                print('Invalid value! Input a valid value:')
+                continue
+            self.greaves_attributes[attribute] = value
+    
+    #Function responsible to record attributes in the belt
+    def attribute_update_belt(self):
+        print('BELT ATTRIBUTES')
+        while True:
+            attribute = input('Choice a attribute or "next item" to next item:  ')
+            if attribute.lower() == 'next item':
+                print('Item finished')
+                break
+            elif attribute not in self.attributes:
+                print('Invalid attribute: Choice a valid attribute from the list.')
+                continue
+            try:
+                value = int(input(f'Input {attribute} item value:  '))
+            except ValueError:
+                print('Invalid value! Input a valid value:')
+                continue
+            self.belt_attributes[attribute] = value
+    
+    #Function responsible to record attributes in the necklace
+    def attribute_update_necklace(self):
+        print('NECKLACE ATTRIBUTES')
+        while True:
+            attribute = input('Choice a attribute or "next item" to next item:  ')
+            if attribute.lower() == 'next item':
+                print('Item finished')
+                break
+            elif attribute not in self.attributes:
+                print('Invalid attribute: Choice a valid attribute from the list.')
+                continue
+            try:
+                value = int(input(f'Input {attribute} item value:  '))
+            except ValueError:
+                print('Invalid value! Input a valid value:')
+                continue
+            self.necklace_attributes[attribute] = value
+    
+    #Function responsible to record attributes in the ring
+    def attribute_update_ring(self):
+        print('RING ATTRIBUTES')
+        while True:
+            attribute = input('Choice a attribute or "finish" for finish build  ') #Here ends the build items
+            if attribute.lower() == 'finish':
+                print('Item finished')
+                break
+            elif attribute not in self.attributes:
+                print('Invalid attribute: Choice a valid attribute from the list.')
+                continue
+            try:
+                value = int(input(f'Input {attribute} item value:  '))
+            except ValueError:
+                print('Invalid value! Input a valid value:')
+                continue
+            self.ring_attributes[attribute] = value
+
+#Build print
+#Show item per item and yours attributes
+    def build_print(self):
+        print(f'WEAPON ATTRIBUTES:')
+        for attr, val in self.weapon_attributes.items():
+            print(f'{attr} = {val}')
+
+        print(f'HELMET ATTRIBUTES:')
+        for attr, val in self.helmet_attributes.items():
+            print(f'{attr} = {val}')
+        
+        print(f'CHEST ATTRIBUTES:')
+        for attr, val in self.chest_attributes.items():
+            print(f'{attr} = {val}')
+        
+        print(f'GLOVES ATTRIBUTES:')
+        for attr, val in self.gloves_attributes.items():
+            print(f'{attr} = {val}')
+        
+        print(f'GREAVES ATTRIBUTES:')
+        for attr, val in self.greaves_attributes.items():
+            print(f'{attr} = {val}')
+
+        print(f'BELT ATTRIBUTES:')
+        for attr, val in self.belt_attributes.items():
+            print(f'{attr} = {val}')
+        
+        print(f'NECKLACE ATTRIBUTES:')
+        for attr, val in self.necklace_attributes.items():
+            print(f'{attr} = {val}')
+
+        print(f'RING ATTRIBUTES:')
+        for attr, val in self.ring_attributes.items():
+            print(f'{attr} = {val}')
+
+    #Function responsible to sum all equal attributes in all items    
+    def total_sum_attributes(self):
+        total_sum = {}
+        all_itens = [self.weapon_attributes, self.helmet_attributes, self.chest_attributes, self.gloves_attributes, self.greaves_attributes,self.belt_attributes, self.necklace_attributes, self.ring_attributes]
+
+        for item in all_itens:
+            for attr, val in item.items():
+                if attr in total_sum:
+                    total_sum[attr] += val
+                else:
+                    total_sum[attr] = val
+        return total_sum
+    
+    #Function responsible for showing all attributes already added to all items
+    def sum_build_print(self):
+        total_attributes = self.total_sum_attributes()
+        print(f'TOTAL ATTRIBUTES:')
+        for attr, val in total_attributes.items():
+            print(f'Attribute: {attr} = {val}')
+
+
+
+#Putting everything to work
+app = App()
+
+app.show_attributes()
+app.attribute_update_weapon()
+app.attribute_update_helmet()
+app.attribute_update_chest()
+app.attribute_update_gloves()
+app.attribute_update_greaves()
+app.attribute_update_belt()
+app.attribute_update_necklace()
+app.attribute_update_ring()
+app.build_print()
+app.total_sum_attributes()
+app.sum_build_print()
